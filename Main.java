@@ -4,11 +4,11 @@ import java.util.*;
 public class CommandController {
 
     private Stack<String> history;
-    private Queue<> queue;
+    private Queue<String> queue;
 
     public CommandController() {
-        history = new Stack();
-        queue = new LinkedList();
+        this.history = new Stack<String>();
+        this.queue = new LinkedList<String>();
     }
 
     public void addCommand(String command) {
@@ -36,5 +36,9 @@ public class CommandController {
 
     public boolean isQueueEmpty(){
         return this.queue.isEmpty();
-    };
+    }
+
+    public boolean isHistoryEmpty() {
+        return this.history.isEmpty();
+    }
 }
