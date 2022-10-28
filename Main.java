@@ -16,8 +16,25 @@ public class CommandController {
     }
 
     public String removeCommand() {
+        if(this.queue.isEmpty()) {
+            throw new Exception("Command queue is empty");
+        }
+
         String command = this.queue.remove();
         this.history.push(command);
         return command;
     }
+
+    public String getLastExecutedCommand() {
+        if(this.history.isEmpty()) {
+            return null;
+        }
+
+        String command = this.history.pop();
+        return command;
+    }
+
+    public boolean isQueueEmpty(){
+        return this.queue.isEmpty();
+    };
 }
